@@ -18,13 +18,18 @@ public class TP01Q01_Palindromo{
 
     public static void main(String[] args) {
         boolean resultado = true;
+        boolean control = true;
         String palavra = "";
         Scanner scanner = new Scanner(System.in);
 
-        while (!palavra.equalsIgnoreCase("FIM")){ //O laço continua até que a entrada seja "FIM".
+        while (control && !palavra.equalsIgnoreCase("FIM")){ //O laço continua até que a entrada seja "FIM".
             palavra = scanner.nextLine();
-            resultado = ispalindromo(palavra);// Resultado recebe TRUE ou FALSE da função "is_palindromo".
+            if(palavra.equalsIgnoreCase("FIM")){
+                control = false;
+            }
+            else{resultado = ispalindromo(palavra);// Resultado recebe TRUE ou FALSE da função "is_palindromo".
             System.out.println(resultado ? "SIM" : "NAO");// Se resultado for igual a TRUE imprime "SIM" caso contrário "NAO"
+            }
         }
         scanner.close();
 
